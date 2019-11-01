@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "example": "node example/server.js"
+  }
+}

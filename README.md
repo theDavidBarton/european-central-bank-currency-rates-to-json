@@ -106,12 +106,15 @@ See other details in 'Background' section above.
 
 ```javascript
 async function exampleUsage() {
-  let rates = await transformRatesToJSON()
+  const rates = await transformRatesToJSON()
   console.log(rates.USD)
 }
 exampleUsage()
 // output: 1.1065
 ```
+
+In the example folder there are an example.js and example.html. With an express server (in server.js) you can test the converter without cors warnings on http://localhost:5000/example.html.
+Run it with `node example/server.js` or `yarn example` commands.
 
 # License
 

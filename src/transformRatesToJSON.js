@@ -28,10 +28,7 @@ async function getCurrencyRatesXML() {
       'https://cors-anywhere.herokuapp.com/https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'
     )
     let data = await response.text()
-    let parsedData = await new DOMParser().parseFromString(
-      data,
-      'application/xml'
-    )
+    let parsedData = await new DOMParser().parseFromString(data, 'application/xml')
     let cubeContent = await parsedData.getElementsByTagName('*')
     return Object.values(cubeContent)
   } catch (e) {
@@ -39,16 +36,14 @@ async function getCurrencyRatesXML() {
   }
 }
 
-async function transformRatesToJSON() {
+export default async function transformRatesToJSON() {
   let rates = []
   let data = await getCurrencyRatesXML()
   try {
     data.map(el => {
       if (el.attributes.getNamedItem('currency') !== null) {
         rates.push({
-          [el.attributes.getNamedItem('currency').value]: parseFloat(
-            el.attributes.getNamedItem('rate').value
-          )
+          [el.attributes.getNamedItem('currency').value]: parseFloat(el.attributes.getNamedItem('rate').value)
         })
       } else if (el.attributes.getNamedItem('time') !== null) {
         rates.push({ time: el.attributes.getNamedItem('time').value })
