@@ -3,6 +3,6 @@
     "express": "^4.17.1"
   },
   "scripts": {
-    "example": "node src/server.js"
+    "example": "node example/server.js"
   }
 }

@@ -113,8 +113,8 @@ exampleUsage()
 // output: 1.1065
 ```
 
-In the src folder there is an example.js and example.html. With an express server (in server.js) you can test it without cors warnings on http://localhost:5000/example.html.
-Run it with `node src/server.js` or `yarn example` commands.
+In the example folder there are an example.js and example.html. With an express server (in server.js) you can test the converter without cors warnings on http://localhost:5000/example.html.
+Run it with `node example/server.js` or `yarn example` commands.
 
 # License
 

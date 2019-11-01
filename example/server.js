@@ -6,6 +6,7 @@ function endpointCreation() {
     const port = process.env.PORT || 5000
 
     // serve the example.html
+    app.use(express.static('example'))
     app.use(express.static('src'))
     app.listen(port)
 
