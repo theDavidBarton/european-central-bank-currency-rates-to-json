@@ -106,12 +106,15 @@ See other details in 'Background' section above.
 
 ```javascript
 async function exampleUsage() {
-  let rates = await transformRatesToJSON()
+  const rates = await transformRatesToJSON()
   console.log(rates.USD)
 }
 exampleUsage()
 // output: 1.1065
 ```
+
+In the src folder there is an example.js and example.html. With an express server (in server.js) you can test it without cors warnings on http://localhost:5000/example.html.
+Run it with `node src/server.js` or `yarn example` commands.
 
 # License
 
