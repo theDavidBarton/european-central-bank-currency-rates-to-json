@@ -1,3 +1,5 @@
+'use strict'
+
 import transformRatesToJSON from './transformRatesToJSON.js'
 
 async function exampleUsage() {
