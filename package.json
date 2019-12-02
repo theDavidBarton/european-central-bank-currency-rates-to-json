@@ -1,8 +1,12 @@
 {
   "devDependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jest": "^24.9.0",
+    "nock": "^11.7.0"
   },
   "scripts": {
-    "example": "node example/server.js"
+    "example": "node example/server.js",
+    "test": "jest --verbose --runInBand --detectOpenHandles",
+    "lint": "eslint"
   }
 }
