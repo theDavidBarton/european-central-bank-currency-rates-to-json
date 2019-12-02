@@ -13,14 +13,16 @@ async function exampleUsage() {
   submit.disabled = false
   // conversion
   const convertRates = () => {
-    let inputValue = document.querySelector('#inputField').value
-    let inputCurrency = document.querySelector('#inputCurrency').value
-    let outputCurrency = document.querySelector('#outputCurrency').value
     let inputInEUR
-    if (!isNaN(inputValue)) {
+
+    const inputFieldValue = document.querySelector('#inputField').value
+    const inputCurrency = document.querySelector('#inputCurrency').value
+    const outputCurrency = document.querySelector('#outputCurrency').value
+
+    if (!isNaN(inputFieldValue)) {
       inputCurrency !== 'EUR'
-        ? (inputInEUR = parseFloat(inputValue) / rates[inputCurrency])
-        : (inputInEUR = parseFloat(inputValue))
+        ? (inputInEUR = parseFloat(inputFieldValue) / rates[inputCurrency])
+        : (inputInEUR = parseFloat(inputFieldValue))
       outputCurrency !== 'EUR'
         ? (document.querySelector('#outputField').value = (inputInEUR * rates[outputCurrency]).toFixed(2))
         : (document.querySelector('#outputField').value = inputInEUR.toFixed(2))
