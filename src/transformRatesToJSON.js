@@ -26,12 +26,12 @@ SOFTWARE.
 
 async function getCurrencyRatesXML() {
   try {
-    let response = await fetch(
+    const response = await fetch(
       'https://cors-anywhere.herokuapp.com/https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml'
     )
-    let data = await response.text()
-    let parsedData = await new DOMParser().parseFromString(data, 'application/xml')
-    let cubeContent = await parsedData.getElementsByTagName('*')
+    const data = await response.text()
+    const parsedData = await new DOMParser().parseFromString(data, 'application/xml')
+    const cubeContent = await parsedData.getElementsByTagName('*')
     return Object.values(cubeContent)
   } catch (e) {
     console.error(e)
@@ -40,8 +40,9 @@ async function getCurrencyRatesXML() {
 
 export default async function transformRatesToJSON() {
   let rates = []
-  let data = await getCurrencyRatesXML()
+
   try {
+    const data = await getCurrencyRatesXML()
     data.map(el => {
       if (el.attributes.getNamedItem('currency') !== null) {
         rates.push({
